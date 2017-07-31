@@ -2,20 +2,19 @@
 
 class StudentsTableGateaway
 {
-	// public function __construct(PDO $pdo)
-	// {
-
-	// }
-
-	public function getAllStudents($order)
+	public function getAllStudents($order, $desc)
 	{
 		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
-		// Создаем подготовленный запрос
 		if (is_null($order)) {
 			$stmt = $pdo->query("SELECT * FROM tbl_students");
 		}
 		else{
-			$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_" . $order);
+			if($desc){
+				$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_" . $order);
+			}
+			else{
+				$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_" . $order . " DESC");
+			}
 		}
 		return($stmt->fetchAll());
 	}

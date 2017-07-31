@@ -9,9 +9,11 @@ $StudentsHandler = new StudentsHandler;
 $SiteController = new SiteController();
 if(isset($_POST['search'])){
 	$students = $SiteController->renderSearch($StudentsHandler);
+	$desc = !$_GET["desc"];
 }
 else{
 	$students = $SiteController->renderList($StudentsHandler);
+	$desc = !$_GET["desc"];
 }
 require_once(__DIR__ . '/public/index.php');
 

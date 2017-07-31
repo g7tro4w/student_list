@@ -9,6 +9,7 @@ class SiteController
 	public $pageName;
 	public $content;
 	public $title;
+	public $desc;
 
 	public function __construct()
 	{

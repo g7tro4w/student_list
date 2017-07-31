@@ -7,10 +7,10 @@
 		</form>
 		<table>
 			<tr>
-				<th><a href="index.php?order=name">Имя</a></th>
-				<th><a href="index.php?order=sername">Фамилия</a></th>
-				<th><a href="index.php?order=group">Номер группы</a></th>
-				<th><a href="index.php?order=mark">Баллов</a></th>
+				<th><a href="index.php?order=name&desc=<?=($desc)?>">Имя</a></th>
+				<th><a href="index.php?order=sername&desc=<?=($desc)?>">Фамилия</a></th>
+				<th><a href="index.php?order=group&desc=<?=($desc)?>">Номер группы</a></th>
+				<th><a href="index.php?order=mark&desc=<?=($desc)?>">Баллов</a></th>
 			</tr>
 			<?php foreach($students as $student):?>
 			<tr>
