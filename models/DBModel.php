@@ -7,12 +7,16 @@ class StudentsTableGateaway
 
 	// }
 
-	public function getAllStudents()
+	public function getAllStudents($order)
 	{
 		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
 		// Создаем подготовленный запрос
-		$stmt = $pdo->query("SELECT * FROM tbl_students");
-		// Выполяем запрос
+		if (is_null($order)) {
+			$stmt = $pdo->query("SELECT * FROM tbl_students");
+		}
+		else{
+			$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_" . $order);
+		}
 		return($stmt->fetchAll());
 	}
 
@@ -40,41 +44,5 @@ class StudentsTableGateaway
 	public function getStudentsByMark()
 	{
 
-	}
-
-	public function sortStudentsByName()
-	{
-		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
-		// Создаем подготовленный запрос
-		$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_name");
-		// Выполяем запрос
-		return($stmt->fetchAll());
-	}
-
-	public function sortStudentsBySername()
-	{
-		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
-		// Создаем подготовленный запрос
-		$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_sername");
-		// Выполяем запрос
-		return($stmt->fetchAll());
-	}
-
-	public function sortStudentsByGroup()
-	{
-		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
-		// Создаем подготовленный запрос
-		$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_group");
-		// Выполяем запрос
-		return($stmt->fetchAll());
-	}
-
-	public function sortStudentsByMark()
-	{
-		$pdo = new PDO("mysql:host=localhost; dbname=students;", 'root', '');
-		// Создаем подготовленный запрос
-		$stmt = $pdo->query("SELECT * FROM tbl_students ORDER BY student_mark");
-		// Выполяем запрос
-		return($stmt->fetchAll());
 	}
 }

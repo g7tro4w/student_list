@@ -50,7 +50,7 @@ class StudentsHandler
 	public function getAllStudents()
 	{
 		$STG = new StudentsTableGateaway;
-		$this->studets = $STG->getAllStudents();
+		$this->studets = $STG->getAllStudents($_GET["order"]);
 		return($this->studets);
 	}
 
