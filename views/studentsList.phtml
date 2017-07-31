@@ -1,0 +1,24 @@
+<div class="wrap">
+	<h1>Список абитуриентов</h1>
+		<form action="index.php" method="post">
+			<label for="">Поиск:</label>
+			<input type="text"  name="search">
+			<input type="submit">
+		</form>
+		<table>
+			<tr>
+				<th>Имя</th>
+				<th>Фамилия</th>
+				<th>Номер группы</th>
+				<th>Баллов</th>
+			</tr>
+			<?php foreach($students as $student):?>
+			<tr>
+				<td><?=htmlspecialchars($student['student_name']) ?></td>
+				<td><?=htmlspecialchars($student['student_sername']) ?></td>
+				<td><?=htmlspecialchars($student['student_group']) ?></td>
+				<td><?=htmlspecialchars($student['student_mark']) ?></td>
+			</tr>
+		<?php endforeach ?>
+		</table>
+</div>

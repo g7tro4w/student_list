@@ -1,0 +1,19 @@
+<div class="wrap">
+	<h1>Поиск по запросу <?=htmlspecialchars($_POST['search'])?></h1>
+		<table>
+			<tr>
+				<th>Имя</th>
+				<th>Фамилия</th>
+				<th>Номер группы</th>
+				<th>Баллов</th>
+			</tr>
+			<?php foreach($students as $student):?>
+			<tr>
+				<td><?=htmlspecialchars($student['student_name']) ?></td>
+				<td><?=htmlspecialchars($student['student_sername']) ?></td>
+				<td><?=htmlspecialchars($student['student_group']) ?></td>
+				<td><?=htmlspecialchars($student['student_mark']) ?></td>
+			</tr>
+		<?php endforeach ?>
+		</table>
+</div>
